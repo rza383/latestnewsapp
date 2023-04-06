@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">LatestNewsApp</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="author">By: %s</string>
+    <string name="publishedAt">Published at: %s</string>
+    <string name="noAuthor">No author defined</string>
+</resources>
