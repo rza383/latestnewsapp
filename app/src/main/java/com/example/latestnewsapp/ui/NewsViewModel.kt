@@ -25,21 +25,20 @@ class NewsViewModel: ViewModel() {
     }
 
     fun getArticlesList(){
-        _status.value = NewsApiStatus.LOADING
-        try{
-            viewModelScope.launch {
+        viewModelScope.launch {
+            _status.value = NewsApiStatus.LOADING
+            try {
                 _newsList.value = NewsApi.retrofitService.getNews().articleItems
                 _status.value = NewsApiStatus.DONE
-
                 if(isFirstTime){
                     _news.value = _newsList.value!![0]
                     isFirstTime = false
                 }
+           } catch(e: Exception){
+                _status.value = NewsApiStatus.ERROR
+                _newsList.value = listOf()
+                Log.d("ViewModel", "${e.message}")
             }
-        } catch(e: Exception){
-            _status.value = NewsApiStatus.ERROR
-            _newsList.value = listOf()
-            Log.d("ViewModel", "${e.message}")
         }
     }
 

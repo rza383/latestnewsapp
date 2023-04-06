@@ -31,7 +31,8 @@ fun bindImage(imageView: ImageView, imgUrl: String?){
 }
 
 @BindingAdapter("apiStatus")
-fun bindStatus(statusImageView: ImageView, status: NewsApiStatus) {
+fun bindStatus(statusImageView: ImageView,
+               status: NewsApiStatus) {
     when(status) {
         NewsApiStatus.LOADING -> {
             statusImageView.visibility = View.VISIBLE
@@ -40,10 +41,9 @@ fun bindStatus(statusImageView: ImageView, status: NewsApiStatus) {
         NewsApiStatus.ERROR -> {
             statusImageView.visibility = View.VISIBLE
             statusImageView.setImageResource(R.drawable.ic_connection_error)
+        }
 
-        }
-        else -> {
-            statusImageView.visibility = View.GONE
-        }
+        else -> statusImageView.visibility = View.GONE
+
     }
 }
